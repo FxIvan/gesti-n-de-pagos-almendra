@@ -41,3 +41,6 @@ Interfaz de usuario que permita:
     - Usar Styled component y Tailwind CSS
     - Validacion en input del backend(JOI)
     - Exportar la LISTA de pagos en un CSV o EXCEL
+
+Guias:
+https://medium.com/@miriamnavamucino/conectar-docker-y-postgres-con-node-js-cbaea3934835
