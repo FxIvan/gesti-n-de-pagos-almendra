@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const mongoose = require("mongoose");
 const asyncHandler = require("express-async-handler");
-const { encrypt, decrypt } = require("../config/crypto");
 
 const unauthorized = (res) => {
   return res.status(401).json({ message: "Not authorized, token failed" });

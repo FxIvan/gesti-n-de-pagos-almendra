@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/FxIvan/gestion-de-pagos-almendra/tree/main#readme",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "joi": "^17.12.3",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.5",
     "sequelize": "^6.37.2"
   }

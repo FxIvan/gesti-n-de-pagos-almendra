@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+require("dotenv").config();
 const sequelize = require("./util/database");
 
 app.use(express.json());
@@ -22,7 +22,7 @@ app.options("*", function (req, res) {
   res.send({});
 });
 
-app.use("/api/user", require("./routes/userRoutes"));
+//app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/payment", require("./routes/paymentRoutes"));
 
 (async () => {
