@@ -30,6 +30,7 @@ app.use("/api/payment", require("./routes/paymentRoutes"));
     await sequelize.sync({ force: false });
     console.log("Database connected!");
     app.listen(process.env.PORT || 3001);
+    console.log("Server running on port " + process.env.PORT || 3001);
   } catch (error) {
     console.log(error);
   }

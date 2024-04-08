@@ -8,14 +8,12 @@ const {
 } = require("../middlewares/validation/createPaymentValidation");
 const { createPayment } = require("../controllers/paymentControllers");
 
-router
-  .route("/create")
-  .post(
-    protect,
-    joiValidation(createPaymentSchema),
-    createPayment,
-    boomHandler
-  );
+router.route("/create").post(
+  //protect,
+  joiValidation(createPaymentSchema),
+  createPayment,
+  boomHandler
+);
 router.route("/list").get(protect, boomHandler);
 //Example GET /api/payment/filter?date=2021-08-01
 router.route("/filter").get(protect, boomHandler);
