@@ -18,13 +18,18 @@ const createPayment = asyncHandler(async (req, res, next) => {
     res.status(201).json({ payment, messages: "Payment created" });
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: "Error creating payment" });
+    next(err);
   }
 });
 
 const listPayment = asyncHandler(async (req, res) => {
   try {
-  } catch {}
+    const payment = await createPaymentModel.findAll();
+    res.status(200).json(payment);
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
 });
 
 const filterPayment = asyncHandler(async (req, res) => {

@@ -21,12 +21,12 @@ Frontend:
 
 Interfaz de usuario que permita:
 
-## Registrar nuevos pagos
+## Registrar nuevos pagos ✅
 
     - Monto
     - Fecha
     - Tipo (Debito / Credito / Efectivo)
-    - Destino (CBU/ALIAS/CVU)
+    - Destino (Usuario)
 
 ## Lista de pagos que permita filtrar por
 
@@ -44,6 +44,6 @@ Interfaz de usuario que permita:
 
 Guias:
 https://medium.com/@miriamnavamucino/conectar-docker-y-postgres-con-node-js-cbaea3934835
-
+https://medium.com/how-to-react/how-to-add-export-to-csv-button-in-react-table-7e77ce93838b
 Frontend:
 gestion-de-pagos-almendra.vercel.app

@@ -6,7 +6,10 @@ const { boomHandler } = require("../middlewares/errorMiddleware");
 const {
   createPaymentSchema,
 } = require("../middlewares/validation/createPaymentValidation");
-const { createPayment } = require("../controllers/paymentControllers");
+const {
+  createPayment,
+  listPayment,
+} = require("../controllers/paymentControllers");
 
 router.route("/create").post(
   //protect,
@@ -14,7 +17,7 @@ router.route("/create").post(
   createPayment,
   boomHandler
 );
-router.route("/list").get(protect, boomHandler);
+router.route("/list").get(/*protect,*/ listPayment, boomHandler);
 //Example GET /api/payment/filter?date=2021-08-01
 router.route("/filter").get(protect, boomHandler);
 router.route("/download").get(protect, boomHandler);
