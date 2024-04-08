@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { protect } = require("../middlewares/authMiddleware");
-const { joiValidation } = require("../middlewares/joiMiddleware");
 const { boomHandler } = require("../middlewares/errorMiddleware");
+const { authUser } = require("../controllers/userControllers");
 
-//router.route("/login").get();
+router.route("/login").post(authUser, boomHandler);
 //router.route("/register").post();
+
+module.exports = router;

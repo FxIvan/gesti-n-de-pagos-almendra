@@ -22,7 +22,7 @@ app.options("*", function (req, res) {
   res.send({});
 });
 
-//app.use("/api/user", require("./routes/userRoutes"));
+app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/payment", require("./routes/paymentRoutes"));
 
 (async () => {
