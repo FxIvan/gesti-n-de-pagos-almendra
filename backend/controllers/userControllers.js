@@ -1,8 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const Boom = require("@hapi/boom");
 const User = require("../models/userModel");
-const generateToken = require("../util/generateToken");
-const sequelize = require("../util/database");
+const generateToken = require("../utils/generateToken");
+const sequelize = require("../utils/database");
 
 const authUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;

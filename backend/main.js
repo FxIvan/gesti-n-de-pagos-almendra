@@ -1,11 +1,15 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const sequelize = require("./util/database");
+const sequelize = require("./utils/database");
 const cors = require("cors");
 
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: [
+    "http://localhost:3000",
+    "gestion-de-pagos-almendra-lwkxmstq3-fxivans-projects.vercel.app",
+    "gestion-de-pagos-almendra.vercel.app",
+  ],
   optionsSuccessStatus: 204,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,

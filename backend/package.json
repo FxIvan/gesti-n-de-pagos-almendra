@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js"
+    "start": "nodemon main.js",
+    "deploy": "scp -r config controllers middlewares models routes utils package.json main.js root@147.182.250.13:/var/www/backendPagos"
   },
   "repository": {
     "type": "git",
