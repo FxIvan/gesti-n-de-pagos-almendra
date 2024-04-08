@@ -33,8 +33,47 @@ const listPayment = asyncHandler(async (req, res) => {
 });
 
 const filterPayment = asyncHandler(async (req, res) => {
+  const { dateFilter, amount, typePayment } = req.query;
+
   try {
-  } catch {}
+    const payments = await createPaymentModel.findAll();
+
+    let paymentFiltered = payments;
+
+    if (dateFilter && (dateFilter === "moreNow" || dateFilter === "lessNow")) {
+      if (dateFilter === "moreNow") {
+        paymentFiltered = payments.slice().reverse();
+      } else {
+        paymentFiltered = payments.slice();
+      }
+    }
+
+    if (amount === "less") {
+      paymentFiltered.sort(
+        (a, b) => parseFloat(a.amount) - parseFloat(b.amount)
+      );
+    } else if (amount === "more") {
+      paymentFiltered.sort(
+        (a, b) => parseFloat(b.amount) - parseFloat(a.amount)
+      );
+    } else {
+      paymentFiltered = paymentFiltered;
+    }
+
+    if (typePayment) {
+      paymentFiltered = paymentFiltered.filter(
+        (payment) => payment.typePayment === typePayment
+      );
+    } else {
+      paymentFiltered = paymentFiltered;
+    }
+
+    // Devolver resultados filtrados
+    res.status(200).json(paymentFiltered);
+  } catch (error) {
+    console.error("Error al filtrar pagos:", error);
+    res.status(500).json({ message: "Error al filtrar pagos" });
+  }
 });
 
 const downloadPayment = asyncHandler(async (req, res) => {

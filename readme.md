@@ -30,9 +30,9 @@ Interfaz de usuario que permita:
 
 ## Lista de pagos que permita filtrar por
 
-    - Fecha
-    - Monto
-    - Tipo de pago
+    - Fecha -> Mas Nuevo y Mas Viejo
+    - Monto -> Menor y Manyor
+    - Tipo de pago -> Debito , Credito o Efectivo
     - Hacer un Search en la lista para buscar palabras claves
 
 ### Puntos Adicionales:
