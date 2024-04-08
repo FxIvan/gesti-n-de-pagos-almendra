@@ -1,10 +1,21 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-require("dotenv").config();
 const sequelize = require("./util/database");
+const cors = require("cors");
+
+const corsOptions = {
+  origin: ["http://localhost:3000"],
+  optionsSuccessStatus: 204,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json({ limit: "100mb" }));
+app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
   res.setHeader("Access.Control-Allow-Origin", "*");

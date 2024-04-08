@@ -24,7 +24,7 @@ export default async function AdminPanel() {
   const { data, session } = await getListRegister();
   return (
     <div>
-      <PanelAdmin session={session} data={data} />
+      <PanelAdmin session={session} dataTable={data} />
     </div>
   );
 }
