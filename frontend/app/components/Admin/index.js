@@ -1,13 +1,9 @@
 "use client";
 
-import AdminPanel from "components/app/protect/admin/page";
-
-export default function PanelAdmin({}) {
+export default function PanelAdmin({ session }) {
   return (
     <div>
-      <div>
-        <AdminPanel />
-      </div>
+      <div>{session.accessToken} </div>
     </div>
   );
 }
