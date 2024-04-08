@@ -16,23 +16,23 @@ Frontend:
 
 ## Implementar Autenticación
 
-    - JWT
-    - Inicio de Sesion
+    - JWT ✅
+    - Inicio de Sesion ✅
 
 Interfaz de usuario que permita:
 
-## Registrar nuevos pagos ✅
+## Registrar nuevos pagos
 
-    - Monto
-    - Fecha
-    - Tipo (Debito / Credito / Efectivo)
-    - Destino (Usuario)
+    - Monto ✅
+    - Fecha ✅
+    - Tipo (Debito / Credito / Efectivo) ✅
+    - Destino (Usuario) ✅
 
-## Lista de pagos que permita filtrar por ✅ Falta hacer el search en el frontend
+## Lista de pagos que permita filtrar por
 
-    - Fecha -> Mas Nuevo y Mas Viejo
-    - Monto -> Menor y Manyor
-    - Tipo de pago -> Debito , Credito o Efectivo
+    - Fecha -> Mas Nuevo y Mas Viejo ✅
+    - Monto -> Menor y Manyor ✅
+    - Tipo de pago -> Debito , Credito o Efectivo ✅
     - Hacer un Search en la lista para buscar palabras claves
 
 ### Puntos Adicionales:

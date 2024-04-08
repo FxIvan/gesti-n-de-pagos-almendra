@@ -12,14 +12,15 @@ const {
   filterPayment,
 } = require("../controllers/paymentControllers");
 
-router.route("/create").post(
-  //protect,
-  joiValidation(createPaymentSchema),
-  createPayment,
-  boomHandler
-);
+router
+  .route("/create")
+  .post(
+    protect,
+    joiValidation(createPaymentSchema),
+    createPayment,
+    boomHandler
+  );
 router.route("/list").get(protect, listPayment, boomHandler);
-//Example GET /api/payment/filter?date=2021-08-01
-router.route("/filter").get(/*protect,*/ filterPayment, boomHandler);
-router.route("/download").get(protect, boomHandler);
+router.route("/filter").get(protect, filterPayment, boomHandler);
+
 module.exports = router;
