@@ -18,7 +18,7 @@ router.route("/create").post(
   createPayment,
   boomHandler
 );
-router.route("/list").get(/*protect,*/ listPayment, boomHandler);
+router.route("/list").get(protect, listPayment, boomHandler);
 //Example GET /api/payment/filter?date=2021-08-01
 router.route("/filter").get(/*protect,*/ filterPayment, boomHandler);
 router.route("/download").get(protect, boomHandler);
