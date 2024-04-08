@@ -6,11 +6,11 @@ import "./App.css";
 import { CSVLink } from "react-csv";
 
 const columns = [
-  { Header: "ID", accessor: "id" },
-  { Header: "Destino", accessor: "destination" },
-  { Header: "Tipo de pago", accessor: "typePayment" },
-  { Header: "Monto", accessor: "amount" },
-  { Header: "Creado", accessor: "date" },
+  { id: 1, Header: "ID", accessor: "id" },
+  { id: 2, Header: "Destino", accessor: "destination" },
+  { id: 3, Header: "Tipo de pago", accessor: "typePayment" },
+  { id: 4, Header: "Monto", accessor: "amount" },
+  { id: 5, Header: "Creado", accessor: "date" },
 ];
 
 export default function PanelAdmin({ session, dataTable }) {
@@ -182,9 +182,12 @@ export default function PanelAdmin({ session, dataTable }) {
                 <table {...getTableProps()}>
                   <thead>
                     {headerGroups.map((headerGroup) => (
-                      <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map((column) => (
-                          <th {...column.getHeaderProps()}>
+                      <tr
+                        key={headerGroup.id}
+                        {...headerGroup.getHeaderGroupProps()}
+                      >
+                        {headerGroup.headers.map((column, index) => (
+                          <th key={index} {...column.getHeaderProps()}>
                             {column.render("Header")}
                           </th>
                         ))}
@@ -192,12 +195,12 @@ export default function PanelAdmin({ session, dataTable }) {
                     ))}
                   </thead>
                   <tbody {...getTableBodyProps()}>
-                    {rows.map((row) => {
+                    {rows.map((row, index) => {
                       prepareRow(row);
                       return (
-                        <tr {...row.getRowProps()}>
+                        <tr key={row.id} {...row.getRowProps()}>
                           {row.cells.map((cell) => (
-                            <td {...cell.getCellProps()}>
+                            <td key={index} {...cell.getCellProps()}>
                               {cell.render("Cell")}
                             </td>
                           ))}
