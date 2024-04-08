@@ -28,7 +28,7 @@ Interfaz de usuario que permita:
     - Tipo (Debito / Credito / Efectivo)
     - Destino (Usuario)
 
-## Lista de pagos que permita filtrar por
+## Lista de pagos que permita filtrar por ✅ Falta hacer el search en el frontend
 
     - Fecha -> Mas Nuevo y Mas Viejo
     - Monto -> Menor y Manyor
