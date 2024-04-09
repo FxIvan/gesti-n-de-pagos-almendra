@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
-import myToast from "../../components/custom/MyToast"; //@/app//components/custom/MyToast
+import myToast from "../../components/custom/MyToast";
 
 export default function Login() {
   const router = useRouter();

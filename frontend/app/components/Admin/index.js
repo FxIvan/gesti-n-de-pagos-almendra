@@ -1,9 +1,12 @@
 "use client";
 import { useMemo, useState } from "react";
 import { useTable } from "react-table";
+import { useRouter } from "next/navigation";
 
 import "./App.css";
 import { CSVLink } from "react-csv";
+
+import myToast from "../../components/custom/MyToast";
 
 const columns = [
   { id: 1, Header: "ID", accessor: "id" },
@@ -14,13 +17,15 @@ const columns = [
 ];
 
 export default function PanelAdmin({ session, dataTable }) {
+  const router = useRouter();
+
   const [dataTableReset, setDataTableReset] = useState(dataTable);
   const [searchFilter, setSearchFilter] = useState("");
   const data = useMemo(() => dataTableReset, [dataTableReset]);
   const [form, setForm] = useState({
     destination: "",
     typePayment: "debit",
-    amount: "",
+    amount: 0,
   });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -56,11 +61,30 @@ export default function PanelAdmin({ session, dataTable }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.dataStatus === 400) {
+          myToast({
+            variant: "danger",
+            children: data.message,
+          });
+          return;
+        }
         setDataTableReset([...dataTableReset, data]);
+        myToast({
+          variant: "success",
+          children: "Registro de pago creado exitosamente",
+        });
         setForm({
           destination: "",
-          typePayment: "",
-          amount: "",
+          typePayment: "debit",
+          amount: 0,
+        });
+        router.refresh();
+      })
+      .catch((error) => {
+        console.log(error);
+        myToast({
+          variant: "danger",
+          children: error.message,
         });
       });
   };
@@ -130,13 +154,24 @@ export default function PanelAdmin({ session, dataTable }) {
             />
           </div>
           <div>
+            <div>
+              <ul className="my-4">
+                <li>Reset</li>
+                <li
+                  className="cursor-pointer text-xs md:text-sm mt-2"
+                  onClick={() => setDataTableReset(dataTable)}
+                >
+                  Resetear tabla
+                </li>
+              </ul>
+            </div>
             <div className="flex flex-row w-full justify-between">
               <ul>
                 <li>Filtrar por fecha</li>
                 <li
-                  className="cursor-pointer text-xs md:text-xs md:text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
-                    filterSubmit("lessNow", "date");
+                    filterSubmit("moreNow", "date");
                   }}
                 >
                   Mas nuevo
@@ -144,7 +179,7 @@ export default function PanelAdmin({ session, dataTable }) {
                 <li
                   className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
-                    filterSubmit("moreNow", "date");
+                    filterSubmit("lessNow", "date");
                   }}
                 >
                   Mas viejo

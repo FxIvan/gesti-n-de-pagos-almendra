@@ -48,6 +48,7 @@ Frontend:
 gestion-de-pagos-almendra.vercel.app
 
 ### ENDPOINT BACKEND
+
 ## Todos estos endpoint fue probado con postamn y pasaron las pruebas
 
 - /api/payment/create
@@ -64,3 +65,5 @@ gestion-de-pagos-almendra.vercel.app
 
 - /api/user/login
 - /api/user/register
+
+> Cosas a mejorar: Independizar cada parte que hace el componente para hacer que el mantenimiento sea sostenible, no lo hice por que nose hasta cuando tengo tiempo de entregar
