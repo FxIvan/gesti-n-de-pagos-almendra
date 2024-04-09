@@ -1,5 +1,12 @@
 ### Gestión de pagos bancarios
 
+- Frontend: gestion-de-pagos-almendra.vercel.app
+
+### Usuario para ingresar con la cuenta:
+- Email: ivan@almendra.com
+- Contraseña: 3965
+
+
 > Crear nuevos pagos
 > Ver la lista de pagos realizados
 > Búsquedas y filtrado segund diferentes criterios
@@ -41,15 +48,10 @@ Interfaz de usuario que permita:
     - Validacion en input del backend(JOI) ✅
     - Exportar la LISTA de pagos en un CSV o EXCEL ✅
 
-Guias:
-https://medium.com/@miriamnavamucino/conectar-docker-y-postgres-con-node-js-cbaea3934835
-https://medium.com/how-to-react/how-to-add-export-to-csv-button-in-react-table-7e77ce93838b
-Frontend:
-gestion-de-pagos-almendra.vercel.app
 
 ### ENDPOINT BACKEND
 
-## Todos estos endpoint fue probado con postamn y pasaron las pruebas
+## Todos estos endpoint fue probado con postman y pasaron las pruebas
 
 - /api/payment/create
 
