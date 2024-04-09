@@ -13,8 +13,6 @@ PostgreSQL
 Docker
 React
 
-Frontend:
-
 ## Implementar Autenticación
 
     - JWT ✅
@@ -34,7 +32,7 @@ Interfaz de usuario que permita:
     - Fecha -> Mas Nuevo y Mas Viejo ✅
     - Monto -> Menor y Manyor ✅
     - Tipo de pago -> Debito , Credito o Efectivo ✅
-    - Hacer un Search en la lista para buscar palabras claves
+    - Hacer un Search en la lista para buscar palabras claves de un campo ✅
 
 ### Puntos Adicionales:
 
@@ -48,3 +46,20 @@ https://medium.com/@miriamnavamucino/conectar-docker-y-postgres-con-node-js-cbae
 https://medium.com/how-to-react/how-to-add-export-to-csv-button-in-react-table-7e77ce93838b
 Frontend:
 gestion-de-pagos-almendra.vercel.app
+
+### ENDPOINT BACKEND
+
+> /api/payment/create
+
+> /api/payment/list
+
+> /api/payment/filter?dateFilter=lessNow
+> /api/payment/filter?dateFilter=lessNow
+> /api/payment/filter?amount=more
+> /api/payment/filter?amount=less
+> /api/payment/filter?typePayment=credit
+> /api/payment/filter?typePayment=debit
+> /api/payment/filter?typePayment=cash
+
+> /api/user/login
+> /api/user/register
