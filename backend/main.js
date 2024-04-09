@@ -7,8 +7,9 @@ const cors = require("cors");
 const corsOptions = {
   origin: [
     "http://localhost:3000",
-    "gestion-de-pagos-almendra-lwkxmstq3-fxivans-projects.vercel.app",
-    "gestion-de-pagos-almendra.vercel.app",
+    "https://gestion-de-pagos-almendra-lwkxmstq3-fxivans-projects.vercel.app",
+    "https://gestion-de-pagos-almendra.vercel.app",
+    "https://gestion-de-pagos-almendra.vercel.app",
   ],
   optionsSuccessStatus: 204,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
