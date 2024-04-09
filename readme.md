@@ -49,17 +49,17 @@ gestion-de-pagos-almendra.vercel.app
 
 ### ENDPOINT BACKEND
 
-> /api/payment/create
+- /api/payment/create
 
-> /api/payment/list
+- /api/payment/list
 
-> /api/payment/filter?dateFilter=lessNow
-> /api/payment/filter?dateFilter=lessNow
-> /api/payment/filter?amount=more
-> /api/payment/filter?amount=less
-> /api/payment/filter?typePayment=credit
-> /api/payment/filter?typePayment=debit
-> /api/payment/filter?typePayment=cash
+- /api/payment/filter?dateFilter=lessNow
+- /api/payment/filter?dateFilter=lessNow
+- /api/payment/filter?amount=more
+- /api/payment/filter?amount=less
+- /api/payment/filter?typePayment=credit
+- /api/payment/filter?typePayment=debit
+- /api/payment/filter?typePayment=cash
 
-> /api/user/login
-> /api/user/register
+- /api/user/login
+- /api/user/register
