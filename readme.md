@@ -1,6 +1,6 @@
 ### Gestión de pagos bancarios
 
-- Frontend: gestion-de-pagos-almendra-qosxbi3j6-fxivans-projects.vercel.app
+- Frontend: gestion-de-pagos-almendra.vercel.app
 
 ### Usuario para ingresar con la cuenta:
 - Email: ivan@almendra.com
