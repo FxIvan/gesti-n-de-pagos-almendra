@@ -18,7 +18,7 @@ export default function PanelAdmin({ session, dataTable }) {
   const data = useMemo(() => dataTableReset, [dataTableReset]);
   const [form, setForm] = useState({
     destination: "",
-    typePayment: "",
+    typePayment: "debit",
     amount: "",
   });
 
@@ -56,6 +56,11 @@ export default function PanelAdmin({ session, dataTable }) {
       .then((res) => res.json())
       .then((data) => {
         setDataTableReset([...dataTableReset, data]);
+        setForm({
+          destination: "",
+          typePayment: "",
+          amount: "",
+        });
       });
   };
 
