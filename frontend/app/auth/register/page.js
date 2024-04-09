@@ -17,7 +17,7 @@ export default function Login() {
 
   useEffect(() => {
     if (errorUrl) {
-      const decodedErrorMessage = atob(errorUrl);
+      const decodedErrorMessage = errorUrl;
       myToast({
         variant: "danger",
         children: decodedErrorMessage,

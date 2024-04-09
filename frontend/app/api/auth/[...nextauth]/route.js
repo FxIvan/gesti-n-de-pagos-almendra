@@ -42,9 +42,8 @@ export const authOptions = {
         });
 
         const user = await res.json();
-
         if (user.statusCode >= 400 || user.error) {
-          throw new Error(btoa(user.message) || "Error");
+          throw new Error(user.message || "Error");
         }
 
         const infoUser = [

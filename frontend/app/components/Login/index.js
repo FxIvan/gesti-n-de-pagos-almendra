@@ -18,7 +18,7 @@ export default function LoginScreen() {
 
   useEffect(() => {
     if (errorUrl) {
-      const decodedErrorMessage = atob(errorUrl);
+      const decodedErrorMessage = errorUrl;
       myToast({
         variant: "danger",
         children: decodedErrorMessage,
@@ -42,7 +42,7 @@ export default function LoginScreen() {
       if (!res.ok) {
         myToast({
           variant: "danger",
-          children: atob(res.error),
+          children: res.error,
         });
         return;
       }
@@ -56,7 +56,11 @@ export default function LoginScreen() {
   };
 
   return (
-    <div className="p-6 bg-white shadow-md h-screen text-center items-center flex justify-center">
+    <div className="p-6 bg-white shadow-md h-screen text-center items-center flex justify-center flex-col">
+      <div className="flex flex-col my-4">
+        <p>Email: ivan@almendra</p>
+        <p>Password: 3965</p>
+      </div>
       <div className="flex flex-col items-center">
         <form>
           <input

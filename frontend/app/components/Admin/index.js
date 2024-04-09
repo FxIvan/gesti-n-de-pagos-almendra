@@ -132,7 +132,7 @@ export default function PanelAdmin({ session, dataTable }) {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="mx-2 md:container md:mx-auto">
       <div className="hidden md:flex">
         <SearchInput
           searchFilter={searchFilter}
@@ -142,11 +142,11 @@ export default function PanelAdmin({ session, dataTable }) {
       </div>
       <div className="flex flex-col-reverse md:flex-row">
         <div className="my-8 mx-2 md:mx-0 md:w-4/6">
-          <div className="flex my-8 justify-center md:hidden">
+          <div className=" my-8 block md:hidden">
             <SearchInput
               searchFilter={searchFilter}
               filterChangeInput={filterChangeInput}
-              addClassname=""
+              addClassname="w-full"
             />
           </div>
           <div>
@@ -163,12 +163,12 @@ export default function PanelAdmin({ session, dataTable }) {
             </div>
             <div className="flex flex-row w-full justify-between">
               <div>
-                <span>Filtrar por fecha</span>
+                <span className="text-sm md:text-base">Filtrar por fecha</span>
                 <div className="flex flex-col">
                   {dataInputFilter.date.map((data, index) => (
                     <span
                       key={index}
-                      className={`cursor-pointer text-xs md:text-sm ${
+                      className={`cursor-pointer text-xs my-2 md:text-sm ${
                         data.subfilterName === inputSelect &&
                         "text-black font-semibold"
                       } `}
@@ -183,12 +183,12 @@ export default function PanelAdmin({ session, dataTable }) {
                 </div>
               </div>
               <div>
-                <span>Filtrar por monto</span>
+                <span className="text-sm md:text-base">Filtrar por monto</span>
                 <div className="flex flex-col">
                   {dataInputFilter.amount.map((data, index) => (
                     <span
                       key={index}
-                      className={`cursor-pointer text-xs md:text-sm ${
+                      className={`cursor-pointer text-xs my-2 md:text-sm ${
                         data.subfilterName === inputSelect &&
                         "text-black font-semibold"
                       } `}
@@ -203,12 +203,14 @@ export default function PanelAdmin({ session, dataTable }) {
                 </div>
               </div>
               <div>
-                <span>Filtrar por tipo de pago</span>
+                <span className="text-sm md:text-base">
+                  Filtrar por tipo de pago
+                </span>
                 <div className="flex flex-col">
                   {dataInputFilter.typePayment.map((data, index) => (
                     <span
                       key={index}
-                      className={`cursor-pointer text-xs md:text-sm ${
+                      className={`cursor-pointer text-xs my-2  md:text-sm ${
                         data.subfilterName === inputSelect &&
                         "text-black font-semibold"
                       } `}
@@ -224,7 +226,7 @@ export default function PanelAdmin({ session, dataTable }) {
               </div>
             </div>
           </div>
-          <div>
+          <div className="overflow-scroll md:overflow-auto">
             <Table csvData={csvData} columns={columns} data={data} />
           </div>
         </div>
