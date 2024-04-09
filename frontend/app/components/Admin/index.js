@@ -15,6 +15,7 @@ const columns = [
 
 export default function PanelAdmin({ session, dataTable }) {
   const [dataTableReset, setDataTableReset] = useState(dataTable);
+  const [searchFilter, setSearchFilter] = useState("");
   const data = useMemo(() => dataTableReset, [dataTableReset]);
   const [form, setForm] = useState({
     destination: "",
@@ -97,8 +98,26 @@ export default function PanelAdmin({ session, dataTable }) {
       });
   };
 
+  const filterChangeInput = async (e) => {
+    setSearchFilter(e.target.value);
+    setDataTableReset(
+      dataTable.filter((data) =>
+        data.destination.toLowerCase().includes(searchFilter.toLowerCase())
+      )
+    );
+  };
+
   return (
     <div className="container mx-auto">
+      <div>
+        <input
+          type="text"
+          placeholder="Buscar por destino"
+          value={searchFilter}
+          onChange={(e) => filterChangeInput(e)}
+          className="border border-gray-300 rounded-md w-1/2 mt-4 px-4"
+        />
+      </div>
       <div className="flex flex-row">
         <div className="my-8 w-4/6">
           <div>
