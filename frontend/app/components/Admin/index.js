@@ -61,7 +61,6 @@ export default function PanelAdmin({ session, dataTable }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
         if (data.dataStatus === 400 || !data.status) {
           myToast({
             variant: "danger",
