@@ -9,7 +9,7 @@ export default function HeaderAuth() {
 
   return (
     <div className="container mx-auto">
-      <div className="w-full text-end py-8">
+      <div className="w-full text-end py-8 px-4">
         <buttton
           onClick={() => logoutHandler()}
           className="text-md font-semibold leading-6 text-gray-900 cursor-pointer"

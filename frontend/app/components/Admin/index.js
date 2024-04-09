@@ -109,7 +109,7 @@ export default function PanelAdmin({ session, dataTable }) {
 
   return (
     <div className="container mx-auto">
-      <div>
+      <div className="hidden md:flex">
         <input
           type="text"
           placeholder="Buscar por destino"
@@ -118,14 +118,23 @@ export default function PanelAdmin({ session, dataTable }) {
           className="border border-gray-300 rounded-md w-1/2 mt-4 px-4"
         />
       </div>
-      <div className="flex flex-row">
-        <div className="my-8 w-4/6">
+      <div className="flex flex-col-reverse md:flex-row">
+        <div className="my-8 mx-2 md:mx-0 md:w-4/6">
+          <div className="flex my-8 justify-center md:hidden">
+            <input
+              type="text"
+              placeholder="Buscar por destino"
+              value={searchFilter}
+              onChange={(e) => filterChangeInput(e)}
+              className="border border-gray-300 rounded-md w-1/2 mt-4 px-4"
+            />
+          </div>
           <div>
             <div className="flex flex-row w-full justify-between">
               <ul>
                 <li>Filtrar por fecha</li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("lessNow", "date");
                   }}
@@ -133,7 +142,7 @@ export default function PanelAdmin({ session, dataTable }) {
                   Mas nuevo
                 </li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("moreNow", "date");
                   }}
@@ -144,7 +153,7 @@ export default function PanelAdmin({ session, dataTable }) {
               <ul>
                 <li>Filtrar por monto</li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("less", "amount");
                   }}
@@ -152,7 +161,7 @@ export default function PanelAdmin({ session, dataTable }) {
                   Menor a mayor
                 </li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("more", "amount");
                   }}
@@ -163,7 +172,7 @@ export default function PanelAdmin({ session, dataTable }) {
               <ul>
                 <li>Filtrar por tipo de pago</li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("debit", "typePayment");
                   }}
@@ -171,7 +180,7 @@ export default function PanelAdmin({ session, dataTable }) {
                   Debito
                 </li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("credit", "typePayment");
                   }}
@@ -179,7 +188,7 @@ export default function PanelAdmin({ session, dataTable }) {
                   Credito
                 </li>
                 <li
-                  className="cursor-pointer text-sm mt-2"
+                  className="cursor-pointer text-xs md:text-sm mt-2"
                   onClick={() => {
                     filterSubmit("cash", "typePayment");
                   }}
@@ -211,7 +220,11 @@ export default function PanelAdmin({ session, dataTable }) {
                         {...headerGroup.getHeaderGroupProps()}
                       >
                         {headerGroup.headers.map((column, index) => (
-                          <th key={index} {...column.getHeaderProps()}>
+                          <th
+                            key={index}
+                            {...column.getHeaderProps()}
+                            className="text-xs md:text-base"
+                          >
                             {column.render("Header")}
                           </th>
                         ))}
@@ -224,7 +237,11 @@ export default function PanelAdmin({ session, dataTable }) {
                       return (
                         <tr key={row.id} {...row.getRowProps()}>
                           {row.cells.map((cell) => (
-                            <td key={index} {...cell.getCellProps()}>
+                            <td
+                              key={index}
+                              {...cell.getCellProps()}
+                              className="text-xs md:text-base"
+                            >
                               {cell.render("Cell")}
                             </td>
                           ))}
@@ -237,7 +254,7 @@ export default function PanelAdmin({ session, dataTable }) {
             </div>
           </div>
         </div>
-        <div className="my-8 w-2/6 ml-4 flex justify-center">
+        <div className="my-8 md:w-2/6 ml-4 flex justify-center">
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col my-4">
               <label htmlFor="destination">Destino</label>
