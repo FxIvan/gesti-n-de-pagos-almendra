@@ -21,6 +21,7 @@ const authUser = asyncHandler(async (req, res, next) => {
       throw Boom.badRequest("Email or password is incorrect");
 
     return res.status(200).json({
+      status: true,
       message: "User authenticated successfully",
       user: userDoc.email,
       token: generateToken(userDoc.id),

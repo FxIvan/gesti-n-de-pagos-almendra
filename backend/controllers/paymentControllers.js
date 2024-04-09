@@ -6,10 +6,11 @@ const moment = require("moment/moment");
 const createPayment = asyncHandler(async (req, res, next) => {
   const { amount, typePayment, destination } = req.body;
   try {
-    if (amount <= 0)
-      throw next(Boom.badRequest("Amount must be greater than 0"));
+    if (amount <= 0) throw Boom.badRequest("Amount must be greater than 0");
+    if (destination === "") throw Boom.badRequest("Destination is empty");
 
     const payment = await createPaymentModel.create({
+      status: true,
       amount,
       date: moment().format("YYYY-MM-DD HH:mm:ss"),
       typePayment,
@@ -25,6 +26,7 @@ const createPayment = asyncHandler(async (req, res, next) => {
 const listPayment = asyncHandler(async (req, res) => {
   try {
     const payment = await createPaymentModel.findAll();
+    if (!payment) throw Boom.notFound("Payment not found");
     res.status(200).json(payment);
   } catch (err) {
     console.log(err);
@@ -76,9 +78,4 @@ const filterPayment = asyncHandler(async (req, res) => {
   }
 });
 
-const downloadPayment = asyncHandler(async (req, res) => {
-  try {
-  } catch {}
-});
-
-module.exports = { createPayment, listPayment, filterPayment, downloadPayment };
+module.exports = { createPayment, listPayment, filterPayment };
