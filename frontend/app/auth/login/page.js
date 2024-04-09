@@ -71,7 +71,7 @@ export default function Login() {
           />
           <button
             type="submit"
-            className=" bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg focus:outline-none focus:shadow-outline"
+            className=" bg-black hover:bg-blue-600 text-white font-bold py-3 rounded-lg focus:outline-none focus:shadow-outline"
             onClick={loginHandler}
           >
             <span className="flex justify-between items-center py-2 px-4">
