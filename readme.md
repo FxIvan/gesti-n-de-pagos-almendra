@@ -51,7 +51,7 @@ Interfaz de usuario que permita:
 
 ### ENDPOINT BACKEND
 
-## Todos estos endpoint fue probado con postamn y pasaron las pruebas
+## Todos estos endpoint fue probado con postman y pasaron las pruebas
 
 - /api/payment/create
 
