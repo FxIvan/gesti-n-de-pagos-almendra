@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
+import myToast from "../../components/custom/MyToast"; //@/app//components/custom/MyToast
 
 export default function Login() {
   const router = useRouter();
@@ -38,6 +39,13 @@ export default function Login() {
         loginPassword: form.password,
         redirect: false,
       });
+      if (!res.ok) {
+        myToast({
+          variant: "danger",
+          children: atob(res.error),
+        });
+        return;
+      }
 
       if (res) {
         window.location.href = "/protect/admin";

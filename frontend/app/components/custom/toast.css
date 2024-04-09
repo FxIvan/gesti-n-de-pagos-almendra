@@ -1,0 +1,9 @@
+@media (max-width: 992px) {
+  .MuiDataGrid-columnHeaders {
+    display: none !important;
+  }
+}
+
+.toastify--custom {
+  z-index: 999999;
+}

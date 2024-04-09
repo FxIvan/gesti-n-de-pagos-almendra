@@ -23,19 +23,20 @@ export const authOptions = {
       },
       async authorize(credentials) {
         const { loginEmail, loginPassword } = credentials;
-        let res;
-
-        res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
-          method: "POST",
-          body: JSON.stringify({
-            email: loginEmail,
-            password: loginPassword,
-          }),
-          headers: {
-            cache: "no-store",
-            "Content-Type": "application/json",
-          },
-        }).catch((error) => {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/user/login`,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: loginEmail,
+              password: loginPassword,
+            }),
+            headers: {
+              cache: "no-store",
+              "Content-Type": "application/json",
+            },
+          }
+        ).catch((error) => {
           console.error("Error:", error);
           throw new Error("Error");
         });
