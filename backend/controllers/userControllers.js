@@ -30,4 +30,25 @@ const authUser = asyncHandler(async (req, res, next) => {
   }
 });
 
-module.exports = { authUser };
+const registerUser = asyncHandler(async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    if (!email || !password)
+      throw Boom.badRequest("Email and password are required");
+
+    const emailSplit = email.toLowerCase();
+
+    const userDoc = await User.findOne({ where: { email: emailSplit } });
+    if (userDoc) throw Boom.badRequest("User already exists");
+
+    await User.create({ email: emailSplit, password, rol: "user" });
+    return res.status(201).json({
+      status: true,
+      message: "User created successfully",
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+module.exports = { authUser, registerUser };
