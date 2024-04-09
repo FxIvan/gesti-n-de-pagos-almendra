@@ -61,14 +61,15 @@ export default function PanelAdmin({ session, dataTable }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.dataStatus === 400) {
+        console.log("data", data);
+        if (data.dataStatus === 400 || !data.status) {
           myToast({
             variant: "danger",
             children: data.message,
           });
           return;
         }
-        setDataTableReset([...dataTableReset, data]);
+        setDataTableReset([...dataTableReset, data.payment]);
         myToast({
           variant: "success",
           children: "Registro de pago creado exitosamente",

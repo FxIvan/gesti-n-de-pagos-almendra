@@ -16,7 +16,10 @@ const createPayment = asyncHandler(async (req, res, next) => {
       typePayment,
       destination,
     });
-    res.status(201).json(payment);
+    res.status(201).json({
+      status: true,
+      payment: payment,
+    });
   } catch (err) {
     console.log(err);
     next(err);
