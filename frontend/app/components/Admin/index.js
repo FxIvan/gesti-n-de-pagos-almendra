@@ -155,7 +155,10 @@ export default function PanelAdmin({ session, dataTable }) {
                 <li>Reset</li>
                 <li
                   className="cursor-pointer text-xs md:text-sm mt-2"
-                  onClick={() => setDataTableReset(dataTable)}
+                  onClick={() => {
+                    setInputSelect("");
+                    setDataTableReset(dataTable);
+                  }}
                 >
                   Resetear tabla
                 </li>
