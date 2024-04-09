@@ -2,9 +2,9 @@
 
 - Frontend: gestion-de-pagos-almendra-qosxbi3j6-fxivans-projects.vercel.app
 
-Usuario para ingresar con la cuenta:
-Email: ivan@almendra.com
-Contraseña: 3965
+### Usuario para ingresar con la cuenta:
+- Email: ivan@almendra.com
+- Contraseña: 3965
 
 
 > Crear nuevos pagos
